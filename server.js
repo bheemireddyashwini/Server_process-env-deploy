@@ -3,7 +3,11 @@ import dotenv from "dotenv";
 
 const app = express();
 app.use(express.json());
+const PORT = process.env.PORT || 5001;
 dotenv.config();
+app.get('/', (req, res) => {
+  res.send(serverMessage);
+});
 
 
 
@@ -26,3 +30,4 @@ const serverMessage = [
 ].join(" ");
 
 console.log(serverMessage);
+app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));
